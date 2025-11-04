@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="assets/img/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Ramaz Challenge &amp; Spinner</title>
+  </head>
+  <body>
+    <header class="app-header">
+      <h1 class="app-title">Ramaz Challenge &amp; Spinner</h1>
+      <!-- Tab navigation -->
+      <nav class="tab-nav" role="tablist" aria-label="Main navigation">
+        <button id="tab-challenge" class="tab-button active" role="tab" aria-selected="true" aria-controls="panel-challenge">Challenge of the Day</button>
+        <button id="tab-spinner" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-spinner">Spinner / Poller</button>
+      </nav>
+    </header>
+    <main class="app-main">
+      <!-- Challenge of the Day Panel -->
+      <section id="panel-challenge" class="panel" role="tabpanel" aria-labelledby="tab-challenge">
+        <div class="panel-header">
+          <h2>Challenge of the Day</h2>
+          <div class="controls">
+            <label for="challenge-subject-select" class="visually-hidden">Filter by subject</label>
+            <select id="challenge-subject-select" aria-label="Filter by subject"></select>
+            <button id="btn-new-challenge" class="primary">New Challenge</button>
+            <button id="btn-toggle-lock" aria-pressed="false" class="secondary">🔓 Lock</button>
+            <button id="btn-copy-challenge" class="secondary" aria-label="Copy challenge">📋 Copy</button>
+            <button id="btn-show-hints" class="secondary" aria-pressed="false">💡 Hints</button>
+          </div>
+        </div>
+        <article id="challenge-content" class="content">
+          <h3 id="challenge-subject">Subject</h3>
+          <p id="challenge-text">Loading challenge…</p>
+          <ul id="challenge-hints" class="hints hidden" aria-hidden="true"></ul>
+        </article>
+      </section>
+      <!-- Spinner Panel -->
+      <section id="panel-spinner" class="panel hidden" role="tabpanel" aria-labelledby="tab-spinner">
+        <div class="panel-header">
+          <h2>Spinner / Poller</h2>
+          <div class="controls">
+            <label for="spinner-category-select" class="visually-hidden">Select category</label>
+            <select id="spinner-category-select" aria-label="Select category"></select>
+            <button id="btn-spin" class="spin-button primary">🎡 Spin</button>
+            <button id="btn-shuffle" class="secondary" aria-label="Shuffle order">🔀 Shuffle</button>
+            <button id="btn-reset" class="secondary" aria-label="Reset pool">🔁 Reset</button>
+            <label class="toggle-label">
+              <input type="checkbox" id="chk-exclude" />
+              Exclude Picked
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="chk-show-history" />
+              Show History
+            </label>
+          </div>
+        </div>
+        <div class="spinner-content">
+          <div class="spinner-wheel" id="spinner-wheel" aria-live="polite"></div>
+          <div class="result-display" id="spinner-result" aria-live="polite">Press Spin to start!</div>
+        </div>
+        <div id="spinner-history" class="history hidden">
+          <h3>History</h3>
+          <ul id="history-list"></ul>
+          <button id="btn-clear-history" class="secondary">Clear History</button>
+        </div>
+        <div class="add-item">
+          <label for="spinner-add-input" class="visually-hidden">Add item</label>
+          <input type="text" id="spinner-add-input" placeholder="Add item" />
+          <button id="btn-add-item" class="secondary">Add</button>
+        </div>
+      </section>
+      <!-- Teacher Controls -->
+      <section id="panel-controls" class="panel" aria-label="Teacher Controls">
+        <h2>Teacher Controls</h2>
+        <div class="controls-grid">
+          <div>
+            <h3>Import/Export Data</h3>
+            <input type="file" id="import-file" accept="application/json" />
+            <button id="btn-export" class="secondary">Export JSON</button>
+          </div>
+          <div>
+            <h3>Settings</h3>
+            <label class="toggle-label">
+              <input type="checkbox" id="chk-sound" />
+              Sound
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="chk-theme" />
+              Dark Mode
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="chk-projector" />
+              Projector Mode
+            </label>
+          </div>
+          <div>
+            <h3>Timer</h3>
+            <div class="timer-controls">
+              <input type="number" id="timer-minutes" min="1" max="60" step="1" value="5" aria-label="Timer minutes" />
+              <button id="btn-start-timer" class="secondary">Start</button>
+              <button id="btn-pause-timer" class="secondary">Pause</button>
+              <button id="btn-reset-timer" class="secondary">Reset</button>
+            </div>
+            <div id="timer-display" class="timer-display" aria-live="polite">05:00</div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Overlay for errors or messages -->
+    <div id="overlay" class="overlay hidden" role="alert"></div>
+    <!-- Confetti container -->
+    <div id="confetti-container" class="confetti-container" aria-hidden="true"></div>
+    <!-- Hidden audio element for sound playback -->
+    <audio id="tada-sound" src="assets/sounds/tada.mp3" preload="auto" aria-hidden="true"></audio>
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>
