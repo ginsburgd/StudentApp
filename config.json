@@ -1,0 +1,37 @@
+{
+  "challenges": [
+    { "subject": "Algebra", "text": "Find the slope between (1,2) and (3,6).", "hints": ["Slope = (y₂ - y₁)/(x₂ - x₁)"] },
+    { "subject": "Algebra", "text": "Solve for x: 3x + 5 = 20." },
+    { "subject": "Algebra", "text": "Factor the quadratic x² - 5x + 6." },
+    { "subject": "Algebra", "text": "Convert 0.75 to a fraction.", "hints": ["Think of quarters."] },
+    { "subject": "Algebra", "text": "Simplify: (2x)^2 * x^3." },
+    { "subject": "Python", "text": "Write a function that returns the factorial of n." },
+    { "subject": "Python", "text": "Explain what a list comprehension does." },
+    { "subject": "Python", "text": "What is the difference between a list and a tuple?" },
+    { "subject": "Python", "text": "Write code to reverse a string in place." },
+    { "subject": "Python", "text": "Describe the purpose of the `__init__` method in classes." },
+    { "subject": "AP CSA", "text": "Write a Java method to reverse an array in place." },
+    { "subject": "AP CSA", "text": "Explain the difference between `==` and `.equals()` in Java." },
+    { "subject": "AP CSA", "text": "Describe what an interface is in Java." },
+    { "subject": "AP CSA", "text": "Write a loop that sums the elements of an array." },
+    { "subject": "AP CSA", "text": "What does the `static` keyword mean in Java?" },
+    { "subject": "Engineering", "text": "Sketch a device that uses a servo and a button." },
+    { "subject": "Engineering", "text": "Explain the difference between voltage and current." },
+    { "subject": "Engineering", "text": "List three renewable energy sources." },
+    { "subject": "Engineering", "text": "What is Ohm’s Law?", "hints": ["V = I × R."] },
+    { "subject": "Engineering", "text": "Define torque in mechanical systems." }
+  ],
+  "spinner": {
+    "categories": {
+      "Students": ["Ari", "Leah", "Noam", "Sara", "Zara"],
+      "Topics": ["Fractions", "Loops", "Arrays", "Slope", "Recursion"],
+      "Review Questions": [
+        "What does Big‑O for bubble sort represent?",
+        "Convert y = mx + b to standard form.",
+        "Explain PWM to a 5th grader.",
+        "What is encapsulation in OOP?",
+        "Name the three states of matter."
+      ]
+    }
+  }
+}

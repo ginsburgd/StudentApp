@@ -1,0 +1,305 @@
+/*
+ * Global Styles for Ramaz Challenge & Spinner
+ * Theme variables are defined on :root and can be toggled for dark/light modes.
+ */
+
+:root {
+  --color-bg: #ffffff;
+  --color-fg: #0c0c0d;
+  --color-primary: #005fa3;
+  --color-secondary: #e0e0e0;
+  --color-accent: #f5a623;
+  --color-error: #d32f2f;
+  --border-radius: 6px;
+  --font-family: system-ui, Arial, sans-serif;
+  --transition-speed: 0.2s;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1e1e1e;
+  --color-fg: #f5f5f5;
+  --color-primary: #90caf9;
+  --color-secondary: #303030;
+  --color-accent: #ffb74d;
+  --color-error: #ef5350;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+}
+
+.app-header {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.tab-nav {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  border-bottom: 3px solid transparent;
+  transition: border-color var(--transition-speed);
+}
+
+.tab-button.active {
+  border-color: var(--color-accent);
+  font-weight: bold;
+}
+
+.app-main {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.panel {
+  background: var(--color-secondary);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.controls select,
+.controls button,
+.add-item input,
+.add-item button,
+.timer-controls input,
+.timer-controls button {
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-primary);
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.secondary {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.hidden {
+  display: none;
+}
+
+.content {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+#challenge-subject {
+  font-weight: bold;
+}
+
+.hints {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  list-style: disc;
+}
+
+.spinner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.spinner-wheel {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 8px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.spinner-wheel::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid var(--color-accent);
+}
+
+.result-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.history {
+  margin-top: 1rem;
+  background-color: var(--color-secondary);
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.history li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.add-item {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.timer-display {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  z-index: 1000;
+}
+
+.confetti-container {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 999;
+}
+
+/* Individual confetti pieces will be positioned absolutely within the container. */
+.confetti-piece {
+  position: absolute;
+  will-change: transform, opacity;
+}
+
+/* Visually hidden class for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Projector mode increases overall font sizes and contrast */
+.projector-mode {
+  font-size: 1.2em;
+}
+.projector-mode .panel {
+  box-shadow: none;
+  border: 2px solid var(--color-primary);
+}
+.projector-mode .tab-button {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .app-main {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .panel {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
